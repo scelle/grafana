@@ -956,7 +956,7 @@ jobs:
           name: ci job started
           command: './scripts/ci-job-started.sh'
       - run:
-          name: Boostrap lerna
+          name: Bootstrap lerna
           command: 'npx lerna bootstrap'
       - run:
           name: Build packages
@@ -980,7 +980,7 @@ jobs:
           name: ci job started
           command: './scripts/ci-job-started.sh'
       - run:
-          name: Boostrap lerna
+          name: Bootstrap lerna
           command: 'npx lerna bootstrap'
       - run:
           name: npm - Prepare auth token
@@ -1006,7 +1006,7 @@ jobs:
           name: ci job started
           command: './scripts/ci-job-started.sh'
       - run:
-          name: Boostrap lerna
+          name: Bootstrap lerna
           command: 'npx lerna bootstrap'
       - run:
           name: npm - Prepare auth token
@@ -1238,70 +1238,70 @@ workflows:
           filters: *filter-only-release
 
   build-branches-and-prs:
-      jobs:
-        - build-fast-backend:
-            filters: *filter-not-release-or-master
-        - build-fast-frontend:
-            filters: *filter-not-release-or-master
-        - build-grafana-packages:
-            filters: *filter-not-release-or-master
-        - build-fast-package:
-            filters: *filter-not-release-or-master
-            requires:
-              - build-fast-backend
-              - build-fast-frontend
-        - codespell:
-            filters: *filter-not-release-or-master
-        - lint-go:
-            filters: *filter-not-release-or-master
-        - shellcheck:
-            filters: *filter-not-release-or-master
-        - test-frontend:
-            filters: *filter-not-release-or-master
-        - test-backend:
-            filters: *filter-not-release-or-master
-        - mysql-integration-test:
-            filters: *filter-not-release-or-master
-        - postgres-integration-test:
-            filters: *filter-not-release-or-master
-        - cache-server-test:
-            filters: *filter-not-release-or-master
-        - grafana-docker-pr:
-            requires:
-              - build-fast-package
-              - test-backend
-              - test-frontend
-              - codespell
-              - lint-go
-              - shellcheck
-              - mysql-integration-test
-              - postgres-integration-test
-              - cache-server-test
-            filters: *filter-not-release-or-master
-        - grafana-docker-ubuntu-pr:
-            requires:
-              - build-fast-package
-              - test-backend
-              - test-frontend
-              - codespell
-              - lint-go
-              - shellcheck
-              - mysql-integration-test
-              - postgres-integration-test
-              - cache-server-test
-            filters: *filter-not-release-or-master
-        - store-build-artifacts:
-            requires:
-              - build-fast-package
-              - test-backend
-              - test-frontend
-              - codespell
-              - lint-go
-              - shellcheck
-              - mysql-integration-test
-              - postgres-integration-test
-              - cache-server-test
-            filters: *filter-not-release-or-master
+    jobs:
+      - build-fast-backend:
+          filters: *filter-not-release-or-master
+      - build-fast-frontend:
+          filters: *filter-not-release-or-master
+      - build-grafana-packages:
+          filters: *filter-not-release-or-master
+      - build-fast-package:
+          filters: *filter-not-release-or-master
+          requires:
+            - build-fast-backend
+            - build-fast-frontend
+      - codespell:
+          filters: *filter-not-release-or-master
+      - lint-go:
+          filters: *filter-not-release-or-master
+      - shellcheck:
+          filters: *filter-not-release-or-master
+      - test-frontend:
+          filters: *filter-not-release-or-master
+      - test-backend:
+          filters: *filter-not-release-or-master
+      - mysql-integration-test:
+          filters: *filter-not-release-or-master
+      - postgres-integration-test:
+          filters: *filter-not-release-or-master
+      - cache-server-test:
+          filters: *filter-not-release-or-master
+      - grafana-docker-pr:
+          requires:
+            - build-fast-package
+            - test-backend
+            - test-frontend
+            - codespell
+            - lint-go
+            - shellcheck
+            - mysql-integration-test
+            - postgres-integration-test
+            - cache-server-test
+          filters: *filter-not-release-or-master
+      - grafana-docker-ubuntu-pr:
+          requires:
+            - build-fast-package
+            - test-backend
+            - test-frontend
+            - codespell
+            - lint-go
+            - shellcheck
+            - mysql-integration-test
+            - postgres-integration-test
+            - cache-server-test
+          filters: *filter-not-release-or-master
+      - store-build-artifacts:
+          requires:
+            - build-fast-package
+            - test-backend
+            - test-frontend
+            - codespell
+            - lint-go
+            - shellcheck
+            - mysql-integration-test
+            - postgres-integration-test
+            - cache-server-test
+          filters: *filter-not-release-or-master
   nightly:
     triggers:
       - schedule:
