@@ -150,9 +150,8 @@ export function makeSeriesForLogs(rows: LogRowModel[], intervalMs: number, timeZ
 
     const timeField = data.fields[1];
     timeField.display = getDisplayProcessor({
-      config: timeField.config,
-      type: timeField.type,
-      isUtc: timeZone === 'utc',
+      field: timeField,
+      timeZone,
     });
 
     const valueField = data.fields[0];
@@ -202,6 +201,7 @@ export function dataFrameToLogsModel(dataFrame: DataFrame[], intervalMs: number,
       // Create metrics from logs
       logsModel.series = makeSeriesForLogs(logsModel.rows, intervalMs, timeZone);
     } else {
+      // We got metrics in the dataFrame so process those
       logsModel.series = getGraphSeriesModel(
         metricSeries,
         timeZone,

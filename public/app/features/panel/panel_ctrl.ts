@@ -18,11 +18,12 @@ import { TemplateSrv } from '../templating/template_srv';
 import { getPanelLinksSupplier } from './panellinks/linkSuppliers';
 import { AppEvent, PanelEvents, PanelPluginMeta, renderMarkdown } from '@grafana/data';
 import { getLocationSrv } from '@grafana/runtime';
+import { DashboardModel } from '../dashboard/state';
 
 export class PanelCtrl {
   panel: any;
   error: any;
-  dashboard: any;
+  dashboard: DashboardModel;
   pluginName: string;
   pluginId: string;
   editorTabs: any;
@@ -276,11 +277,10 @@ export class PanelCtrl {
     let html = '<div class="markdown-html panel-info-content">';
 
     const md = renderMarkdown(interpolatedMarkdown);
-    html += config.disableSanitizeHtml ? md : sanitize(md);
+    html += md;
 
     if (panel.links && panel.links.length > 0) {
       const interpolatedLinks = getPanelLinksSupplier(panel).getLinks();
-
       html += '<ul class="panel-info-corner-links">';
       for (const link of interpolatedLinks) {
         html +=
@@ -297,7 +297,7 @@ export class PanelCtrl {
 
     html += '</div>';
 
-    return html;
+    return config.disableSanitizeHtml ? html : sanitize(html);
   }
 
   // overriden from react
