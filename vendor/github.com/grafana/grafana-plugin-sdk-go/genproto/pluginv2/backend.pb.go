@@ -50,7 +50,7 @@ func (x CheckHealth_Response_HealthStatus) String() string {
 }
 
 func (CheckHealth_Response_HealthStatus) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{2, 1, 0}
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{7, 1, 0}
 }
 
 type PluginConfig struct {
@@ -140,255 +140,6 @@ func (m *PluginConfig) GetDecryptedSecureJsonData() map[string]string {
 	return nil
 }
 
-type CollectMetrics struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *CollectMetrics) Reset()         { *m = CollectMetrics{} }
-func (m *CollectMetrics) String() string { return proto.CompactTextString(m) }
-func (*CollectMetrics) ProtoMessage()    {}
-func (*CollectMetrics) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{1}
-}
-
-func (m *CollectMetrics) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CollectMetrics.Unmarshal(m, b)
-}
-func (m *CollectMetrics) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CollectMetrics.Marshal(b, m, deterministic)
-}
-func (m *CollectMetrics) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CollectMetrics.Merge(m, src)
-}
-func (m *CollectMetrics) XXX_Size() int {
-	return xxx_messageInfo_CollectMetrics.Size(m)
-}
-func (m *CollectMetrics) XXX_DiscardUnknown() {
-	xxx_messageInfo_CollectMetrics.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_CollectMetrics proto.InternalMessageInfo
-
-type CollectMetrics_Request struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *CollectMetrics_Request) Reset()         { *m = CollectMetrics_Request{} }
-func (m *CollectMetrics_Request) String() string { return proto.CompactTextString(m) }
-func (*CollectMetrics_Request) ProtoMessage()    {}
-func (*CollectMetrics_Request) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{1, 0}
-}
-
-func (m *CollectMetrics_Request) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CollectMetrics_Request.Unmarshal(m, b)
-}
-func (m *CollectMetrics_Request) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CollectMetrics_Request.Marshal(b, m, deterministic)
-}
-func (m *CollectMetrics_Request) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CollectMetrics_Request.Merge(m, src)
-}
-func (m *CollectMetrics_Request) XXX_Size() int {
-	return xxx_messageInfo_CollectMetrics_Request.Size(m)
-}
-func (m *CollectMetrics_Request) XXX_DiscardUnknown() {
-	xxx_messageInfo_CollectMetrics_Request.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_CollectMetrics_Request proto.InternalMessageInfo
-
-type CollectMetrics_Payload struct {
-	Prometheus           []byte   `protobuf:"bytes,1,opt,name=prometheus,proto3" json:"prometheus,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *CollectMetrics_Payload) Reset()         { *m = CollectMetrics_Payload{} }
-func (m *CollectMetrics_Payload) String() string { return proto.CompactTextString(m) }
-func (*CollectMetrics_Payload) ProtoMessage()    {}
-func (*CollectMetrics_Payload) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{1, 1}
-}
-
-func (m *CollectMetrics_Payload) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CollectMetrics_Payload.Unmarshal(m, b)
-}
-func (m *CollectMetrics_Payload) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CollectMetrics_Payload.Marshal(b, m, deterministic)
-}
-func (m *CollectMetrics_Payload) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CollectMetrics_Payload.Merge(m, src)
-}
-func (m *CollectMetrics_Payload) XXX_Size() int {
-	return xxx_messageInfo_CollectMetrics_Payload.Size(m)
-}
-func (m *CollectMetrics_Payload) XXX_DiscardUnknown() {
-	xxx_messageInfo_CollectMetrics_Payload.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_CollectMetrics_Payload proto.InternalMessageInfo
-
-func (m *CollectMetrics_Payload) GetPrometheus() []byte {
-	if m != nil {
-		return m.Prometheus
-	}
-	return nil
-}
-
-type CollectMetrics_Response struct {
-	Metrics              *CollectMetrics_Payload `protobuf:"bytes,1,opt,name=metrics,proto3" json:"metrics,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
-	XXX_unrecognized     []byte                  `json:"-"`
-	XXX_sizecache        int32                   `json:"-"`
-}
-
-func (m *CollectMetrics_Response) Reset()         { *m = CollectMetrics_Response{} }
-func (m *CollectMetrics_Response) String() string { return proto.CompactTextString(m) }
-func (*CollectMetrics_Response) ProtoMessage()    {}
-func (*CollectMetrics_Response) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{1, 2}
-}
-
-func (m *CollectMetrics_Response) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CollectMetrics_Response.Unmarshal(m, b)
-}
-func (m *CollectMetrics_Response) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CollectMetrics_Response.Marshal(b, m, deterministic)
-}
-func (m *CollectMetrics_Response) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CollectMetrics_Response.Merge(m, src)
-}
-func (m *CollectMetrics_Response) XXX_Size() int {
-	return xxx_messageInfo_CollectMetrics_Response.Size(m)
-}
-func (m *CollectMetrics_Response) XXX_DiscardUnknown() {
-	xxx_messageInfo_CollectMetrics_Response.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_CollectMetrics_Response proto.InternalMessageInfo
-
-func (m *CollectMetrics_Response) GetMetrics() *CollectMetrics_Payload {
-	if m != nil {
-		return m.Metrics
-	}
-	return nil
-}
-
-type CheckHealth struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *CheckHealth) Reset()         { *m = CheckHealth{} }
-func (m *CheckHealth) String() string { return proto.CompactTextString(m) }
-func (*CheckHealth) ProtoMessage()    {}
-func (*CheckHealth) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{2}
-}
-
-func (m *CheckHealth) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CheckHealth.Unmarshal(m, b)
-}
-func (m *CheckHealth) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CheckHealth.Marshal(b, m, deterministic)
-}
-func (m *CheckHealth) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CheckHealth.Merge(m, src)
-}
-func (m *CheckHealth) XXX_Size() int {
-	return xxx_messageInfo_CheckHealth.Size(m)
-}
-func (m *CheckHealth) XXX_DiscardUnknown() {
-	xxx_messageInfo_CheckHealth.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_CheckHealth proto.InternalMessageInfo
-
-type CheckHealth_Request struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *CheckHealth_Request) Reset()         { *m = CheckHealth_Request{} }
-func (m *CheckHealth_Request) String() string { return proto.CompactTextString(m) }
-func (*CheckHealth_Request) ProtoMessage()    {}
-func (*CheckHealth_Request) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{2, 0}
-}
-
-func (m *CheckHealth_Request) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CheckHealth_Request.Unmarshal(m, b)
-}
-func (m *CheckHealth_Request) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CheckHealth_Request.Marshal(b, m, deterministic)
-}
-func (m *CheckHealth_Request) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CheckHealth_Request.Merge(m, src)
-}
-func (m *CheckHealth_Request) XXX_Size() int {
-	return xxx_messageInfo_CheckHealth_Request.Size(m)
-}
-func (m *CheckHealth_Request) XXX_DiscardUnknown() {
-	xxx_messageInfo_CheckHealth_Request.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_CheckHealth_Request proto.InternalMessageInfo
-
-type CheckHealth_Response struct {
-	Status               CheckHealth_Response_HealthStatus `protobuf:"varint,1,opt,name=status,proto3,enum=pluginv2.CheckHealth_Response_HealthStatus" json:"status,omitempty"`
-	Info                 string                            `protobuf:"bytes,2,opt,name=info,proto3" json:"info,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                          `json:"-"`
-	XXX_unrecognized     []byte                            `json:"-"`
-	XXX_sizecache        int32                             `json:"-"`
-}
-
-func (m *CheckHealth_Response) Reset()         { *m = CheckHealth_Response{} }
-func (m *CheckHealth_Response) String() string { return proto.CompactTextString(m) }
-func (*CheckHealth_Response) ProtoMessage()    {}
-func (*CheckHealth_Response) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{2, 1}
-}
-
-func (m *CheckHealth_Response) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CheckHealth_Response.Unmarshal(m, b)
-}
-func (m *CheckHealth_Response) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CheckHealth_Response.Marshal(b, m, deterministic)
-}
-func (m *CheckHealth_Response) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CheckHealth_Response.Merge(m, src)
-}
-func (m *CheckHealth_Response) XXX_Size() int {
-	return xxx_messageInfo_CheckHealth_Response.Size(m)
-}
-func (m *CheckHealth_Response) XXX_DiscardUnknown() {
-	xxx_messageInfo_CheckHealth_Response.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_CheckHealth_Response proto.InternalMessageInfo
-
-func (m *CheckHealth_Response) GetStatus() CheckHealth_Response_HealthStatus {
-	if m != nil {
-		return m.Status
-	}
-	return CheckHealth_Response_UNKNOWN
-}
-
-func (m *CheckHealth_Response) GetInfo() string {
-	if m != nil {
-		return m.Info
-	}
-	return ""
-}
-
 type TimeRange struct {
 	FromEpochMS          int64    `protobuf:"varint,1,opt,name=fromEpochMS,proto3" json:"fromEpochMS,omitempty"`
 	ToEpochMS            int64    `protobuf:"varint,2,opt,name=toEpochMS,proto3" json:"toEpochMS,omitempty"`
@@ -401,7 +152,7 @@ func (m *TimeRange) Reset()         { *m = TimeRange{} }
 func (m *TimeRange) String() string { return proto.CompactTextString(m) }
 func (*TimeRange) ProtoMessage()    {}
 func (*TimeRange) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{3}
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{1}
 }
 
 func (m *TimeRange) XXX_Unmarshal(b []byte) error {
@@ -451,7 +202,7 @@ func (m *DataQuery) Reset()         { *m = DataQuery{} }
 func (m *DataQuery) String() string { return proto.CompactTextString(m) }
 func (*DataQuery) ProtoMessage()    {}
 func (*DataQuery) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{4}
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{2}
 }
 
 func (m *DataQuery) XXX_Unmarshal(b []byte) error {
@@ -523,7 +274,7 @@ func (m *DataQueryRequest) Reset()         { *m = DataQueryRequest{} }
 func (m *DataQueryRequest) String() string { return proto.CompactTextString(m) }
 func (*DataQueryRequest) ProtoMessage()    {}
 func (*DataQueryRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{5}
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{3}
 }
 
 func (m *DataQueryRequest) XXX_Unmarshal(b []byte) error {
@@ -580,7 +331,7 @@ func (m *DataQueryResponse) Reset()         { *m = DataQueryResponse{} }
 func (m *DataQueryResponse) String() string { return proto.CompactTextString(m) }
 func (*DataQueryResponse) ProtoMessage()    {}
 func (*DataQueryResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{6}
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{4}
 }
 
 func (m *DataQueryResponse) XXX_Unmarshal(b []byte) error {
@@ -615,132 +366,457 @@ func (m *DataQueryResponse) GetMetadata() map[string]string {
 	return nil
 }
 
-type ResourceRequest struct {
-	// Plugin Configuration
-	Config *PluginConfig `protobuf:"bytes,1,opt,name=config,proto3" json:"config,omitempty"`
-	// HTTP Style parameters
-	Headers              map[string]string `protobuf:"bytes,2,rep,name=headers,proto3" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
-	Method               string            `protobuf:"bytes,3,opt,name=method,proto3" json:"method,omitempty"`
-	Path                 string            `protobuf:"bytes,4,opt,name=path,proto3" json:"path,omitempty"`
-	Body                 []byte            `protobuf:"bytes,5,opt,name=body,proto3" json:"body,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
-	XXX_unrecognized     []byte            `json:"-"`
-	XXX_sizecache        int32             `json:"-"`
+type CallResource struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResourceRequest) Reset()         { *m = ResourceRequest{} }
-func (m *ResourceRequest) String() string { return proto.CompactTextString(m) }
-func (*ResourceRequest) ProtoMessage()    {}
-func (*ResourceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{7}
+func (m *CallResource) Reset()         { *m = CallResource{} }
+func (m *CallResource) String() string { return proto.CompactTextString(m) }
+func (*CallResource) ProtoMessage()    {}
+func (*CallResource) Descriptor() ([]byte, []int) {
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{5}
 }
 
-func (m *ResourceRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ResourceRequest.Unmarshal(m, b)
+func (m *CallResource) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CallResource.Unmarshal(m, b)
 }
-func (m *ResourceRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ResourceRequest.Marshal(b, m, deterministic)
+func (m *CallResource) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CallResource.Marshal(b, m, deterministic)
 }
-func (m *ResourceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ResourceRequest.Merge(m, src)
+func (m *CallResource) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CallResource.Merge(m, src)
 }
-func (m *ResourceRequest) XXX_Size() int {
-	return xxx_messageInfo_ResourceRequest.Size(m)
+func (m *CallResource) XXX_Size() int {
+	return xxx_messageInfo_CallResource.Size(m)
 }
-func (m *ResourceRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_ResourceRequest.DiscardUnknown(m)
+func (m *CallResource) XXX_DiscardUnknown() {
+	xxx_messageInfo_CallResource.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_ResourceRequest proto.InternalMessageInfo
+var xxx_messageInfo_CallResource proto.InternalMessageInfo
 
-func (m *ResourceRequest) GetConfig() *PluginConfig {
+type CallResource_StringList struct {
+	Values               []string `protobuf:"bytes,1,rep,name=values,proto3" json:"values,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CallResource_StringList) Reset()         { *m = CallResource_StringList{} }
+func (m *CallResource_StringList) String() string { return proto.CompactTextString(m) }
+func (*CallResource_StringList) ProtoMessage()    {}
+func (*CallResource_StringList) Descriptor() ([]byte, []int) {
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{5, 0}
+}
+
+func (m *CallResource_StringList) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CallResource_StringList.Unmarshal(m, b)
+}
+func (m *CallResource_StringList) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CallResource_StringList.Marshal(b, m, deterministic)
+}
+func (m *CallResource_StringList) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CallResource_StringList.Merge(m, src)
+}
+func (m *CallResource_StringList) XXX_Size() int {
+	return xxx_messageInfo_CallResource_StringList.Size(m)
+}
+func (m *CallResource_StringList) XXX_DiscardUnknown() {
+	xxx_messageInfo_CallResource_StringList.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CallResource_StringList proto.InternalMessageInfo
+
+func (m *CallResource_StringList) GetValues() []string {
+	if m != nil {
+		return m.Values
+	}
+	return nil
+}
+
+type CallResource_Request struct {
+	Config               *PluginConfig                       `protobuf:"bytes,1,opt,name=config,proto3" json:"config,omitempty"`
+	Path                 string                              `protobuf:"bytes,2,opt,name=path,proto3" json:"path,omitempty"`
+	Method               string                              `protobuf:"bytes,3,opt,name=method,proto3" json:"method,omitempty"`
+	Url                  string                              `protobuf:"bytes,4,opt,name=url,proto3" json:"url,omitempty"`
+	Headers              map[string]*CallResource_StringList `protobuf:"bytes,5,rep,name=headers,proto3" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Body                 []byte                              `protobuf:"bytes,6,opt,name=body,proto3" json:"body,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                            `json:"-"`
+	XXX_unrecognized     []byte                              `json:"-"`
+	XXX_sizecache        int32                               `json:"-"`
+}
+
+func (m *CallResource_Request) Reset()         { *m = CallResource_Request{} }
+func (m *CallResource_Request) String() string { return proto.CompactTextString(m) }
+func (*CallResource_Request) ProtoMessage()    {}
+func (*CallResource_Request) Descriptor() ([]byte, []int) {
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{5, 1}
+}
+
+func (m *CallResource_Request) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CallResource_Request.Unmarshal(m, b)
+}
+func (m *CallResource_Request) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CallResource_Request.Marshal(b, m, deterministic)
+}
+func (m *CallResource_Request) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CallResource_Request.Merge(m, src)
+}
+func (m *CallResource_Request) XXX_Size() int {
+	return xxx_messageInfo_CallResource_Request.Size(m)
+}
+func (m *CallResource_Request) XXX_DiscardUnknown() {
+	xxx_messageInfo_CallResource_Request.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CallResource_Request proto.InternalMessageInfo
+
+func (m *CallResource_Request) GetConfig() *PluginConfig {
 	if m != nil {
 		return m.Config
 	}
 	return nil
 }
 
-func (m *ResourceRequest) GetHeaders() map[string]string {
-	if m != nil {
-		return m.Headers
-	}
-	return nil
-}
-
-func (m *ResourceRequest) GetMethod() string {
-	if m != nil {
-		return m.Method
-	}
-	return ""
-}
-
-func (m *ResourceRequest) GetPath() string {
+func (m *CallResource_Request) GetPath() string {
 	if m != nil {
 		return m.Path
 	}
 	return ""
 }
 
-func (m *ResourceRequest) GetBody() []byte {
+func (m *CallResource_Request) GetMethod() string {
 	if m != nil {
-		return m.Body
+		return m.Method
 	}
-	return nil
+	return ""
 }
 
-type ResourceResponse struct {
-	Code                 int32             `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
-	Headers              map[string]string `protobuf:"bytes,2,rep,name=headers,proto3" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
-	Body                 []byte            `protobuf:"bytes,3,opt,name=body,proto3" json:"body,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
-	XXX_unrecognized     []byte            `json:"-"`
-	XXX_sizecache        int32             `json:"-"`
-}
-
-func (m *ResourceResponse) Reset()         { *m = ResourceResponse{} }
-func (m *ResourceResponse) String() string { return proto.CompactTextString(m) }
-func (*ResourceResponse) ProtoMessage()    {}
-func (*ResourceResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{8}
-}
-
-func (m *ResourceResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ResourceResponse.Unmarshal(m, b)
-}
-func (m *ResourceResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ResourceResponse.Marshal(b, m, deterministic)
-}
-func (m *ResourceResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ResourceResponse.Merge(m, src)
-}
-func (m *ResourceResponse) XXX_Size() int {
-	return xxx_messageInfo_ResourceResponse.Size(m)
-}
-func (m *ResourceResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_ResourceResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ResourceResponse proto.InternalMessageInfo
-
-func (m *ResourceResponse) GetCode() int32 {
+func (m *CallResource_Request) GetUrl() string {
 	if m != nil {
-		return m.Code
+		return m.Url
 	}
-	return 0
+	return ""
 }
 
-func (m *ResourceResponse) GetHeaders() map[string]string {
+func (m *CallResource_Request) GetHeaders() map[string]*CallResource_StringList {
 	if m != nil {
 		return m.Headers
 	}
 	return nil
 }
 
-func (m *ResourceResponse) GetBody() []byte {
+func (m *CallResource_Request) GetBody() []byte {
 	if m != nil {
 		return m.Body
 	}
 	return nil
+}
+
+type CallResource_Response struct {
+	Code                 int32                               `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
+	Headers              map[string]*CallResource_StringList `protobuf:"bytes,2,rep,name=headers,proto3" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Body                 []byte                              `protobuf:"bytes,3,opt,name=body,proto3" json:"body,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                            `json:"-"`
+	XXX_unrecognized     []byte                              `json:"-"`
+	XXX_sizecache        int32                               `json:"-"`
+}
+
+func (m *CallResource_Response) Reset()         { *m = CallResource_Response{} }
+func (m *CallResource_Response) String() string { return proto.CompactTextString(m) }
+func (*CallResource_Response) ProtoMessage()    {}
+func (*CallResource_Response) Descriptor() ([]byte, []int) {
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{5, 2}
+}
+
+func (m *CallResource_Response) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CallResource_Response.Unmarshal(m, b)
+}
+func (m *CallResource_Response) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CallResource_Response.Marshal(b, m, deterministic)
+}
+func (m *CallResource_Response) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CallResource_Response.Merge(m, src)
+}
+func (m *CallResource_Response) XXX_Size() int {
+	return xxx_messageInfo_CallResource_Response.Size(m)
+}
+func (m *CallResource_Response) XXX_DiscardUnknown() {
+	xxx_messageInfo_CallResource_Response.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CallResource_Response proto.InternalMessageInfo
+
+func (m *CallResource_Response) GetCode() int32 {
+	if m != nil {
+		return m.Code
+	}
+	return 0
+}
+
+func (m *CallResource_Response) GetHeaders() map[string]*CallResource_StringList {
+	if m != nil {
+		return m.Headers
+	}
+	return nil
+}
+
+func (m *CallResource_Response) GetBody() []byte {
+	if m != nil {
+		return m.Body
+	}
+	return nil
+}
+
+type CollectMetrics struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CollectMetrics) Reset()         { *m = CollectMetrics{} }
+func (m *CollectMetrics) String() string { return proto.CompactTextString(m) }
+func (*CollectMetrics) ProtoMessage()    {}
+func (*CollectMetrics) Descriptor() ([]byte, []int) {
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{6}
+}
+
+func (m *CollectMetrics) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CollectMetrics.Unmarshal(m, b)
+}
+func (m *CollectMetrics) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CollectMetrics.Marshal(b, m, deterministic)
+}
+func (m *CollectMetrics) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CollectMetrics.Merge(m, src)
+}
+func (m *CollectMetrics) XXX_Size() int {
+	return xxx_messageInfo_CollectMetrics.Size(m)
+}
+func (m *CollectMetrics) XXX_DiscardUnknown() {
+	xxx_messageInfo_CollectMetrics.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CollectMetrics proto.InternalMessageInfo
+
+type CollectMetrics_Request struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CollectMetrics_Request) Reset()         { *m = CollectMetrics_Request{} }
+func (m *CollectMetrics_Request) String() string { return proto.CompactTextString(m) }
+func (*CollectMetrics_Request) ProtoMessage()    {}
+func (*CollectMetrics_Request) Descriptor() ([]byte, []int) {
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{6, 0}
+}
+
+func (m *CollectMetrics_Request) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CollectMetrics_Request.Unmarshal(m, b)
+}
+func (m *CollectMetrics_Request) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CollectMetrics_Request.Marshal(b, m, deterministic)
+}
+func (m *CollectMetrics_Request) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CollectMetrics_Request.Merge(m, src)
+}
+func (m *CollectMetrics_Request) XXX_Size() int {
+	return xxx_messageInfo_CollectMetrics_Request.Size(m)
+}
+func (m *CollectMetrics_Request) XXX_DiscardUnknown() {
+	xxx_messageInfo_CollectMetrics_Request.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CollectMetrics_Request proto.InternalMessageInfo
+
+type CollectMetrics_Payload struct {
+	Prometheus           []byte   `protobuf:"bytes,1,opt,name=prometheus,proto3" json:"prometheus,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CollectMetrics_Payload) Reset()         { *m = CollectMetrics_Payload{} }
+func (m *CollectMetrics_Payload) String() string { return proto.CompactTextString(m) }
+func (*CollectMetrics_Payload) ProtoMessage()    {}
+func (*CollectMetrics_Payload) Descriptor() ([]byte, []int) {
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{6, 1}
+}
+
+func (m *CollectMetrics_Payload) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CollectMetrics_Payload.Unmarshal(m, b)
+}
+func (m *CollectMetrics_Payload) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CollectMetrics_Payload.Marshal(b, m, deterministic)
+}
+func (m *CollectMetrics_Payload) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CollectMetrics_Payload.Merge(m, src)
+}
+func (m *CollectMetrics_Payload) XXX_Size() int {
+	return xxx_messageInfo_CollectMetrics_Payload.Size(m)
+}
+func (m *CollectMetrics_Payload) XXX_DiscardUnknown() {
+	xxx_messageInfo_CollectMetrics_Payload.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CollectMetrics_Payload proto.InternalMessageInfo
+
+func (m *CollectMetrics_Payload) GetPrometheus() []byte {
+	if m != nil {
+		return m.Prometheus
+	}
+	return nil
+}
+
+type CollectMetrics_Response struct {
+	Metrics              *CollectMetrics_Payload `protobuf:"bytes,1,opt,name=metrics,proto3" json:"metrics,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
+	XXX_unrecognized     []byte                  `json:"-"`
+	XXX_sizecache        int32                   `json:"-"`
+}
+
+func (m *CollectMetrics_Response) Reset()         { *m = CollectMetrics_Response{} }
+func (m *CollectMetrics_Response) String() string { return proto.CompactTextString(m) }
+func (*CollectMetrics_Response) ProtoMessage()    {}
+func (*CollectMetrics_Response) Descriptor() ([]byte, []int) {
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{6, 2}
+}
+
+func (m *CollectMetrics_Response) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CollectMetrics_Response.Unmarshal(m, b)
+}
+func (m *CollectMetrics_Response) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CollectMetrics_Response.Marshal(b, m, deterministic)
+}
+func (m *CollectMetrics_Response) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CollectMetrics_Response.Merge(m, src)
+}
+func (m *CollectMetrics_Response) XXX_Size() int {
+	return xxx_messageInfo_CollectMetrics_Response.Size(m)
+}
+func (m *CollectMetrics_Response) XXX_DiscardUnknown() {
+	xxx_messageInfo_CollectMetrics_Response.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CollectMetrics_Response proto.InternalMessageInfo
+
+func (m *CollectMetrics_Response) GetMetrics() *CollectMetrics_Payload {
+	if m != nil {
+		return m.Metrics
+	}
+	return nil
+}
+
+type CheckHealth struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CheckHealth) Reset()         { *m = CheckHealth{} }
+func (m *CheckHealth) String() string { return proto.CompactTextString(m) }
+func (*CheckHealth) ProtoMessage()    {}
+func (*CheckHealth) Descriptor() ([]byte, []int) {
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{7}
+}
+
+func (m *CheckHealth) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CheckHealth.Unmarshal(m, b)
+}
+func (m *CheckHealth) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CheckHealth.Marshal(b, m, deterministic)
+}
+func (m *CheckHealth) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CheckHealth.Merge(m, src)
+}
+func (m *CheckHealth) XXX_Size() int {
+	return xxx_messageInfo_CheckHealth.Size(m)
+}
+func (m *CheckHealth) XXX_DiscardUnknown() {
+	xxx_messageInfo_CheckHealth.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CheckHealth proto.InternalMessageInfo
+
+type CheckHealth_Request struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CheckHealth_Request) Reset()         { *m = CheckHealth_Request{} }
+func (m *CheckHealth_Request) String() string { return proto.CompactTextString(m) }
+func (*CheckHealth_Request) ProtoMessage()    {}
+func (*CheckHealth_Request) Descriptor() ([]byte, []int) {
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{7, 0}
+}
+
+func (m *CheckHealth_Request) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CheckHealth_Request.Unmarshal(m, b)
+}
+func (m *CheckHealth_Request) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CheckHealth_Request.Marshal(b, m, deterministic)
+}
+func (m *CheckHealth_Request) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CheckHealth_Request.Merge(m, src)
+}
+func (m *CheckHealth_Request) XXX_Size() int {
+	return xxx_messageInfo_CheckHealth_Request.Size(m)
+}
+func (m *CheckHealth_Request) XXX_DiscardUnknown() {
+	xxx_messageInfo_CheckHealth_Request.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CheckHealth_Request proto.InternalMessageInfo
+
+type CheckHealth_Response struct {
+	Status               CheckHealth_Response_HealthStatus `protobuf:"varint,1,opt,name=status,proto3,enum=pluginv2.CheckHealth_Response_HealthStatus" json:"status,omitempty"`
+	Info                 string                            `protobuf:"bytes,2,opt,name=info,proto3" json:"info,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                          `json:"-"`
+	XXX_unrecognized     []byte                            `json:"-"`
+	XXX_sizecache        int32                             `json:"-"`
+}
+
+func (m *CheckHealth_Response) Reset()         { *m = CheckHealth_Response{} }
+func (m *CheckHealth_Response) String() string { return proto.CompactTextString(m) }
+func (*CheckHealth_Response) ProtoMessage()    {}
+func (*CheckHealth_Response) Descriptor() ([]byte, []int) {
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{7, 1}
+}
+
+func (m *CheckHealth_Response) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CheckHealth_Response.Unmarshal(m, b)
+}
+func (m *CheckHealth_Response) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CheckHealth_Response.Marshal(b, m, deterministic)
+}
+func (m *CheckHealth_Response) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CheckHealth_Response.Merge(m, src)
+}
+func (m *CheckHealth_Response) XXX_Size() int {
+	return xxx_messageInfo_CheckHealth_Response.Size(m)
+}
+func (m *CheckHealth_Response) XXX_DiscardUnknown() {
+	xxx_messageInfo_CheckHealth_Response.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CheckHealth_Response proto.InternalMessageInfo
+
+func (m *CheckHealth_Response) GetStatus() CheckHealth_Response_HealthStatus {
+	if m != nil {
+		return m.Status
+	}
+	return CheckHealth_Response_UNKNOWN
+}
+
+func (m *CheckHealth_Response) GetInfo() string {
+	if m != nil {
+		return m.Info
+	}
+	return ""
 }
 
 type StreamingRequest struct {
@@ -762,7 +838,7 @@ func (m *StreamingRequest) Reset()         { *m = StreamingRequest{} }
 func (m *StreamingRequest) String() string { return proto.CompactTextString(m) }
 func (*StreamingRequest) ProtoMessage()    {}
 func (*StreamingRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{9}
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{8}
 }
 
 func (m *StreamingRequest) XXX_Unmarshal(b []byte) error {
@@ -831,7 +907,7 @@ func (m *StreamingMessage) Reset()         { *m = StreamingMessage{} }
 func (m *StreamingMessage) String() string { return proto.CompactTextString(m) }
 func (*StreamingMessage) ProtoMessage()    {}
 func (*StreamingMessage) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{10}
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{9}
 }
 
 func (m *StreamingMessage) XXX_Unmarshal(b []byte) error {
@@ -884,7 +960,7 @@ func (m *StreamingClose) Reset()         { *m = StreamingClose{} }
 func (m *StreamingClose) String() string { return proto.CompactTextString(m) }
 func (*StreamingClose) ProtoMessage()    {}
 func (*StreamingClose) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{11}
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{10}
 }
 
 func (m *StreamingClose) XXX_Unmarshal(b []byte) error {
@@ -922,7 +998,6 @@ type RenderRequest struct {
 	FilePath             string   `protobuf:"bytes,7,opt,name=filePath,proto3" json:"filePath,omitempty"`
 	RenderKey            string   `protobuf:"bytes,8,opt,name=renderKey,proto3" json:"renderKey,omitempty"`
 	Domain               string   `protobuf:"bytes,9,opt,name=domain,proto3" json:"domain,omitempty"`
-	Debug                bool     `protobuf:"varint,10,opt,name=debug,proto3" json:"debug,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -932,7 +1007,7 @@ func (m *RenderRequest) Reset()         { *m = RenderRequest{} }
 func (m *RenderRequest) String() string { return proto.CompactTextString(m) }
 func (*RenderRequest) ProtoMessage()    {}
 func (*RenderRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{12}
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{11}
 }
 
 func (m *RenderRequest) XXX_Unmarshal(b []byte) error {
@@ -1016,13 +1091,6 @@ func (m *RenderRequest) GetDomain() string {
 	return ""
 }
 
-func (m *RenderRequest) GetDebug() bool {
-	if m != nil {
-		return m.Debug
-	}
-	return false
-}
-
 type RenderResponse struct {
 	Error                string   `protobuf:"bytes,1,opt,name=error,proto3" json:"error,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -1034,7 +1102,7 @@ func (m *RenderResponse) Reset()         { *m = RenderResponse{} }
 func (m *RenderResponse) String() string { return proto.CompactTextString(m) }
 func (*RenderResponse) ProtoMessage()    {}
 func (*RenderResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{13}
+	return fileDescriptor_5ab9ba5b8d8b2ba5, []int{12}
 }
 
 func (m *RenderResponse) XXX_Unmarshal(b []byte) error {
@@ -1066,6 +1134,18 @@ func init() {
 	proto.RegisterEnum("pluginv2.CheckHealth_Response_HealthStatus", CheckHealth_Response_HealthStatus_name, CheckHealth_Response_HealthStatus_value)
 	proto.RegisterType((*PluginConfig)(nil), "pluginv2.PluginConfig")
 	proto.RegisterMapType((map[string]string)(nil), "pluginv2.PluginConfig.DecryptedSecureJsonDataEntry")
+	proto.RegisterType((*TimeRange)(nil), "pluginv2.TimeRange")
+	proto.RegisterType((*DataQuery)(nil), "pluginv2.DataQuery")
+	proto.RegisterType((*DataQueryRequest)(nil), "pluginv2.DataQueryRequest")
+	proto.RegisterMapType((map[string]string)(nil), "pluginv2.DataQueryRequest.HeadersEntry")
+	proto.RegisterType((*DataQueryResponse)(nil), "pluginv2.DataQueryResponse")
+	proto.RegisterMapType((map[string]string)(nil), "pluginv2.DataQueryResponse.MetadataEntry")
+	proto.RegisterType((*CallResource)(nil), "pluginv2.CallResource")
+	proto.RegisterType((*CallResource_StringList)(nil), "pluginv2.CallResource.StringList")
+	proto.RegisterType((*CallResource_Request)(nil), "pluginv2.CallResource.Request")
+	proto.RegisterMapType((map[string]*CallResource_StringList)(nil), "pluginv2.CallResource.Request.HeadersEntry")
+	proto.RegisterType((*CallResource_Response)(nil), "pluginv2.CallResource.Response")
+	proto.RegisterMapType((map[string]*CallResource_StringList)(nil), "pluginv2.CallResource.Response.HeadersEntry")
 	proto.RegisterType((*CollectMetrics)(nil), "pluginv2.CollectMetrics")
 	proto.RegisterType((*CollectMetrics_Request)(nil), "pluginv2.CollectMetrics.Request")
 	proto.RegisterType((*CollectMetrics_Payload)(nil), "pluginv2.CollectMetrics.Payload")
@@ -1073,16 +1153,6 @@ func init() {
 	proto.RegisterType((*CheckHealth)(nil), "pluginv2.CheckHealth")
 	proto.RegisterType((*CheckHealth_Request)(nil), "pluginv2.CheckHealth.Request")
 	proto.RegisterType((*CheckHealth_Response)(nil), "pluginv2.CheckHealth.Response")
-	proto.RegisterType((*TimeRange)(nil), "pluginv2.TimeRange")
-	proto.RegisterType((*DataQuery)(nil), "pluginv2.DataQuery")
-	proto.RegisterType((*DataQueryRequest)(nil), "pluginv2.DataQueryRequest")
-	proto.RegisterMapType((map[string]string)(nil), "pluginv2.DataQueryRequest.HeadersEntry")
-	proto.RegisterType((*DataQueryResponse)(nil), "pluginv2.DataQueryResponse")
-	proto.RegisterMapType((map[string]string)(nil), "pluginv2.DataQueryResponse.MetadataEntry")
-	proto.RegisterType((*ResourceRequest)(nil), "pluginv2.ResourceRequest")
-	proto.RegisterMapType((map[string]string)(nil), "pluginv2.ResourceRequest.HeadersEntry")
-	proto.RegisterType((*ResourceResponse)(nil), "pluginv2.ResourceResponse")
-	proto.RegisterMapType((map[string]string)(nil), "pluginv2.ResourceResponse.HeadersEntry")
 	proto.RegisterType((*StreamingRequest)(nil), "pluginv2.StreamingRequest")
 	proto.RegisterMapType((map[string]string)(nil), "pluginv2.StreamingRequest.HeadersEntry")
 	proto.RegisterType((*StreamingMessage)(nil), "pluginv2.StreamingMessage")
@@ -1094,83 +1164,86 @@ func init() {
 func init() { proto.RegisterFile("backend.proto", fileDescriptor_5ab9ba5b8d8b2ba5) }
 
 var fileDescriptor_5ab9ba5b8d8b2ba5 = []byte{
-	// 1207 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x57, 0xcd, 0x72, 0x1b, 0xc5,
-	0x13, 0xff, 0xaf, 0x64, 0x7d, 0xb5, 0x6c, 0x47, 0x99, 0xb8, 0x92, 0xfd, 0x6f, 0x42, 0xca, 0xa8,
-	0xa8, 0xe0, 0x14, 0x85, 0x02, 0xca, 0x85, 0x4a, 0xaa, 0x80, 0x20, 0x9b, 0x90, 0x18, 0x27, 0xca,
-	0x38, 0x29, 0x8a, 0x0b, 0x55, 0xa3, 0xdd, 0x96, 0xb4, 0x78, 0x77, 0x47, 0x99, 0x9d, 0x35, 0x88,
-	0x37, 0xe0, 0xc2, 0x85, 0x1b, 0x0f, 0x01, 0x17, 0x2e, 0x3c, 0x00, 0x8f, 0xc0, 0x7b, 0x70, 0xe3,
-	0x08, 0x35, 0xb3, 0x33, 0xab, 0xb5, 0xca, 0x52, 0x55, 0x88, 0x0f, 0xdc, 0xba, 0x7b, 0x7b, 0x7e,
-	0xd3, 0xdf, 0x3d, 0x0b, 0x5b, 0x23, 0xe6, 0x9f, 0x60, 0x12, 0xf4, 0x66, 0x82, 0x4b, 0x4e, 0x9a,
-	0xb3, 0x28, 0x9b, 0x84, 0xc9, 0x69, 0xdf, 0xbb, 0x3e, 0xe1, 0x7c, 0x12, 0xe1, 0x1d, 0x2d, 0x1f,
-	0x65, 0xe3, 0x3b, 0x18, 0xcf, 0xe4, 0x3c, 0x57, 0xeb, 0xfe, 0x5e, 0x81, 0xcd, 0xa1, 0xd6, 0x1c,
-	0xf0, 0x64, 0x1c, 0x4e, 0xc8, 0x36, 0x54, 0xc2, 0xc0, 0x75, 0x76, 0x9d, 0xbd, 0x2a, 0xad, 0x84,
-	0x01, 0xd9, 0x81, 0x1a, 0x17, 0x93, 0x47, 0x81, 0x5b, 0xd1, 0xa2, 0x9c, 0x21, 0x04, 0x36, 0x12,
-	0x16, 0xa3, 0x5b, 0xdd, 0x75, 0xf6, 0x5a, 0x54, 0xd3, 0x4a, 0x26, 0xe7, 0x33, 0x74, 0x37, 0x72,
-	0x99, 0xa2, 0x49, 0x07, 0xaa, 0x99, 0x88, 0xdc, 0x9a, 0x16, 0x29, 0x92, 0x78, 0xd0, 0xfc, 0x3a,
-	0xe5, 0xc9, 0x3e, 0x93, 0xcc, 0xad, 0x6b, 0x71, 0xc1, 0x93, 0x18, 0xae, 0x05, 0xe8, 0x8b, 0xf9,
-	0x4c, 0x62, 0x70, 0x8c, 0x7e, 0x26, 0xf0, 0xb1, 0x55, 0x6d, 0xec, 0x56, 0xf7, 0xda, 0xfd, 0xbb,
-	0x3d, 0xeb, 0x55, 0xaf, 0x6c, 0x74, 0x6f, 0xff, 0xfc, 0x53, 0x07, 0x89, 0x14, 0x73, 0xba, 0x0a,
-	0xd3, 0x7b, 0x0c, 0x37, 0xd6, 0x1d, 0x54, 0xc6, 0x9f, 0xe0, 0x5c, 0xc7, 0xa2, 0x45, 0x15, 0xa9,
-	0x82, 0x71, 0xca, 0xa2, 0x0c, 0x75, 0x30, 0x5a, 0x34, 0x67, 0xee, 0x55, 0x3e, 0x70, 0xba, 0x3f,
-	0x38, 0xb0, 0x3d, 0xe0, 0x51, 0x84, 0xbe, 0x3c, 0x42, 0x29, 0x42, 0x3f, 0xf5, 0x5a, 0xd0, 0xa0,
-	0xf8, 0x32, 0xc3, 0x54, 0x7a, 0xb7, 0xa1, 0x31, 0x64, 0xf3, 0x88, 0xb3, 0x80, 0xdc, 0x04, 0x98,
-	0x09, 0x1e, 0xa3, 0x9c, 0x62, 0x96, 0x6a, 0xec, 0x4d, 0x5a, 0x92, 0x78, 0x9f, 0x42, 0x93, 0x62,
-	0x3a, 0xe3, 0x49, 0x8a, 0xe4, 0x1e, 0x34, 0xe2, 0x1c, 0x4c, 0x2b, 0xb6, 0xfb, 0xbb, 0x0b, 0xff,
-	0xcf, 0x5e, 0xd6, 0x33, 0xf0, 0xd4, 0x1e, 0xe8, 0xfe, 0xec, 0x40, 0x7b, 0x30, 0x45, 0xff, 0xe4,
-	0x33, 0x64, 0x91, 0x9c, 0x96, 0xad, 0xf9, 0xd1, 0x29, 0xdd, 0x31, 0x80, 0x7a, 0x2a, 0x99, 0x34,
-	0xb6, 0x6c, 0xf7, 0xdf, 0x29, 0x5d, 0xb1, 0x38, 0xde, 0xb3, 0xfa, 0xbd, 0x9c, 0x3f, 0xd6, 0x47,
-	0xa8, 0x39, 0xaa, 0x52, 0x1f, 0x26, 0x63, 0x6e, 0xc2, 0xa2, 0xe9, 0x6e, 0x0f, 0x36, 0xcb, 0xba,
-	0xa4, 0x0d, 0x8d, 0x17, 0x4f, 0x0e, 0x9f, 0x3c, 0xfd, 0xe2, 0x49, 0xe7, 0x7f, 0xa4, 0x0e, 0x95,
-	0xa7, 0x87, 0x1d, 0x87, 0xb4, 0xa0, 0x76, 0x40, 0xe9, 0x53, 0xda, 0xa9, 0x74, 0x0f, 0xa1, 0xf5,
-	0x3c, 0x8c, 0x91, 0xb2, 0x64, 0x82, 0x64, 0x17, 0xda, 0x63, 0xc1, 0xe3, 0x83, 0x19, 0xf7, 0xa7,
-	0x47, 0xc7, 0xa6, 0x1c, 0xcb, 0x22, 0x72, 0x03, 0x5a, 0x92, 0xdb, 0xef, 0x79, 0x6d, 0x2e, 0x04,
-	0xca, 0xfb, 0x96, 0x4a, 0xe4, 0xb3, 0x0c, 0x85, 0x4e, 0x9b, 0xc0, 0xf1, 0xa3, 0xc0, 0xa4, 0x32,
-	0x67, 0xc8, 0x5b, 0xb0, 0x15, 0xb3, 0x6f, 0x95, 0xd6, 0x90, 0x87, 0x89, 0x4c, 0x0d, 0xca, 0x59,
-	0xa1, 0xca, 0x57, 0x98, 0x48, 0x14, 0xa7, 0x2c, 0x3a, 0x3a, 0xd6, 0xf5, 0x5e, 0xa5, 0x25, 0x09,
-	0x79, 0x1f, 0x5a, 0xd2, 0x9a, 0xad, 0x4b, 0xbf, 0xdd, 0xbf, 0xb2, 0x08, 0x61, 0xe1, 0x11, 0x5d,
-	0x68, 0xa9, 0x68, 0xa9, 0x92, 0xd7, 0x5d, 0xb1, 0x49, 0x35, 0xdd, 0xfd, 0xd3, 0x81, 0x4e, 0x61,
-	0xb0, 0x49, 0x14, 0xe9, 0x41, 0xdd, 0xd7, 0x05, 0x6e, 0xd2, 0x7f, 0xf5, 0xfc, 0xf2, 0xa7, 0x46,
-	0x8b, 0x3c, 0x80, 0xc6, 0x14, 0x59, 0x80, 0x42, 0xf9, 0xa2, 0xfa, 0xe5, 0xed, 0xc5, 0x81, 0x65,
-	0x70, 0x95, 0x48, 0xa5, 0x99, 0xf7, 0x88, 0x3d, 0x47, 0xde, 0x85, 0xc6, 0xcb, 0x0c, 0x45, 0x88,
-	0xa9, 0x5b, 0xd5, 0x10, 0x57, 0xce, 0x83, 0xb0, 0x3a, 0xde, 0x3d, 0x9d, 0xe4, 0x02, 0xe7, 0x95,
-	0x5a, 0xe6, 0x17, 0x07, 0x2e, 0x97, 0xac, 0x32, 0xf5, 0x78, 0x15, 0xea, 0x63, 0xc1, 0x62, 0x54,
-	0xf5, 0x58, 0xdd, 0xdb, 0xa4, 0x86, 0x23, 0x07, 0xd0, 0x8c, 0x51, 0xb2, 0x40, 0x0d, 0x83, 0xdc,
-	0xb9, 0xdb, 0xe7, 0x3a, 0x67, 0xca, 0xf4, 0xc8, 0xe8, 0xe6, 0xee, 0x15, 0x47, 0xbd, 0xfb, 0xb0,
-	0x75, 0xe6, 0xd3, 0x2b, 0x59, 0xfc, 0xb7, 0x03, 0x97, 0x28, 0xa6, 0x3c, 0x13, 0x3e, 0xfe, 0xdb,
-	0x1c, 0x7d, 0xbc, 0x9c, 0xa3, 0x5b, 0x8b, 0x03, 0x4b, 0xd8, 0x2b, 0x52, 0x74, 0x15, 0xea, 0x6a,
-	0x58, 0xf0, 0xc0, 0x4c, 0x5f, 0xc3, 0xa9, 0xb2, 0x9a, 0x31, 0x39, 0xb5, 0xf3, 0x57, 0xd1, 0x4a,
-	0x36, 0xe2, 0xc1, 0xdc, 0x96, 0x9a, 0xa2, 0x5f, 0x2b, 0x67, 0xbf, 0x39, 0xd0, 0x59, 0x58, 0x69,
-	0x52, 0x46, 0x60, 0xc3, 0xe7, 0x01, 0x6a, 0x84, 0x1a, 0xd5, 0xf4, 0xda, 0x52, 0x5c, 0x06, 0x58,
-	0xe1, 0xa7, 0xb5, 0xbd, 0x7a, 0x41, 0xb6, 0xff, 0xe5, 0x40, 0xe7, 0x58, 0x0a, 0x64, 0x71, 0x98,
-	0x4c, 0x6c, 0xfa, 0x3c, 0x30, 0x8b, 0xf2, 0x91, 0x5d, 0x7a, 0x05, 0xbf, 0xd6, 0x87, 0x65, 0xa0,
-	0x15, 0x3e, 0xec, 0x40, 0x4d, 0xf2, 0x59, 0xe8, 0x9b, 0x54, 0xe5, 0x4c, 0xe1, 0x99, 0xc9, 0x94,
-	0xa2, 0xd5, 0x9c, 0x49, 0xb3, 0x51, 0xea, 0x8b, 0x70, 0x84, 0x81, 0xce, 0x57, 0x93, 0x96, 0x24,
-	0xaf, 0xe5, 0xf9, 0x57, 0x25, 0xc7, 0x8f, 0x30, 0x4d, 0xd9, 0x04, 0xd7, 0x3a, 0x5e, 0x58, 0x5d,
-	0x29, 0x5b, 0xed, 0xaa, 0x6d, 0xa4, 0x0f, 0x1b, 0x6f, 0x2c, 0xdb, 0xbd, 0x05, 0xdb, 0x05, 0xfe,
-	0x20, 0xe2, 0x29, 0x2a, 0x04, 0x9f, 0x67, 0x89, 0x34, 0xd0, 0x39, 0xd3, 0xfd, 0xbe, 0x02, 0x5b,
-	0x14, 0x93, 0x00, 0x85, 0x0d, 0xbf, 0x79, 0x1f, 0x38, 0x8b, 0xf7, 0xc1, 0x0e, 0xd4, 0xbe, 0x09,
-	0x03, 0x39, 0xd5, 0x77, 0xd7, 0x68, 0xce, 0xa8, 0x9a, 0x9f, 0x62, 0x38, 0x99, 0x4a, 0x7d, 0x75,
-	0x8d, 0x1a, 0x4e, 0xd9, 0xa4, 0xe6, 0x2a, 0xcf, 0xa4, 0x0e, 0x66, 0x8d, 0x5a, 0x56, 0xf9, 0xa7,
-	0xc8, 0xef, 0x78, 0x82, 0xe6, 0xf9, 0x51, 0xf0, 0xea, 0x1b, 0x26, 0x3e, 0x0f, 0xc2, 0x64, 0x62,
-	0xdf, 0x20, 0x96, 0x57, 0xdf, 0xc6, 0x61, 0x84, 0x43, 0xd5, 0x49, 0x8d, 0xfc, 0x9b, 0xe5, 0xd5,
-	0xce, 0x11, 0xda, 0xfc, 0x43, 0x9c, 0xbb, 0x4d, 0xfd, 0x71, 0x21, 0x50, 0x36, 0x06, 0x3c, 0x66,
-	0x61, 0xe2, 0xb6, 0xf2, 0xbe, 0xcc, 0x39, 0xe5, 0x51, 0x80, 0xa3, 0x6c, 0xe2, 0x82, 0x4e, 0x6a,
-	0xce, 0xa8, 0x98, 0xd9, 0x50, 0x98, 0x36, 0xda, 0x81, 0x1a, 0x0a, 0xc1, 0x85, 0xdd, 0x52, 0x9a,
-	0xe9, 0xff, 0x5a, 0x81, 0x8d, 0x01, 0x17, 0x48, 0x5e, 0x2c, 0x3f, 0x30, 0xc8, 0xea, 0xd7, 0x80,
-	0xdd, 0xf4, 0x6f, 0xae, 0xd1, 0x30, 0xb7, 0x7e, 0x7e, 0xe6, 0x99, 0x40, 0xde, 0x58, 0xb5, 0xfe,
-	0x73, 0xc0, 0x9b, 0xeb, 0x5f, 0x07, 0xe4, 0x81, 0x7e, 0x59, 0xe8, 0xee, 0x26, 0xff, 0x5f, 0x39,
-	0xd8, 0x3c, 0x6f, 0xf5, 0x30, 0x20, 0xfb, 0xe5, 0xcd, 0xed, 0xad, 0x5e, 0x60, 0xde, 0xf5, 0x35,
-	0xf3, 0xbf, 0xff, 0x93, 0x03, 0x97, 0x1e, 0x0a, 0x36, 0x66, 0x09, 0x1b, 0x46, 0x4c, 0x8e, 0xb9,
-	0x88, 0xff, 0x3b, 0xc6, 0x3d, 0x83, 0xd6, 0x73, 0xc1, 0x92, 0x54, 0x5b, 0x75, 0x31, 0x90, 0x5f,
-	0xc2, 0xe5, 0x02, 0x72, 0xc0, 0xa2, 0xe8, 0x13, 0xe6, 0x9f, 0x5c, 0x10, 0xf4, 0x1f, 0x0e, 0x5c,
-	0x2a, 0xda, 0x3b, 0xdf, 0x69, 0xe4, 0x23, 0x68, 0x0c, 0x78, 0x92, 0xa0, 0x2f, 0xc9, 0x8a, 0x85,
-	0x57, 0x0e, 0xe3, 0xf2, 0xf0, 0x79, 0xcf, 0x51, 0xb3, 0x75, 0x28, 0xb8, 0x8f, 0x69, 0x4a, 0xbc,
-	0xd5, 0x53, 0x75, 0x1d, 0x08, 0xf9, 0x10, 0x60, 0x3f, 0x4c, 0xfd, 0xc2, 0x8c, 0xfc, 0x37, 0xa7,
-	0x67, 0x7f, 0x73, 0x7a, 0x07, 0xea, 0x37, 0xc7, 0x73, 0xcf, 0x41, 0xd0, 0x33, 0xaa, 0xff, 0x50,
-	0x95, 0x83, 0xea, 0x40, 0x14, 0xe4, 0x3e, 0xd4, 0x73, 0x9a, 0x5c, 0x2b, 0x67, 0xbf, 0x34, 0xaa,
-	0xca, 0x40, 0x67, 0x1b, 0x77, 0x54, 0xd7, 0x57, 0xde, 0xfd, 0x27, 0x00, 0x00, 0xff, 0xff, 0x84,
-	0x8c, 0xdf, 0x9f, 0x82, 0x0d, 0x00, 0x00,
+	// 1261 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x57, 0xcd, 0x6e, 0x1c, 0x45,
+	0x10, 0x66, 0xf6, 0xd7, 0x5b, 0xbb, 0x76, 0x9c, 0x8e, 0x95, 0xac, 0x26, 0x21, 0x38, 0xab, 0x08,
+	0x1c, 0x01, 0x1b, 0xd8, 0x1c, 0x40, 0x89, 0x04, 0x82, 0xb5, 0xf3, 0xe7, 0x38, 0x76, 0xda, 0x89,
+	0x10, 0x07, 0x90, 0xda, 0x33, 0xb5, 0xbb, 0x83, 0x67, 0xba, 0x37, 0x3d, 0x3d, 0x81, 0xe5, 0x21,
+	0xb8, 0x70, 0xe6, 0xc6, 0x19, 0x04, 0xcf, 0x00, 0x8f, 0xc0, 0x81, 0xb7, 0x40, 0xe2, 0xc0, 0x15,
+	0x75, 0x4f, 0xcf, 0xcf, 0x5a, 0xde, 0x8d, 0x02, 0x11, 0xe2, 0x56, 0x55, 0x53, 0x5d, 0xfd, 0xd5,
+	0x4f, 0x7f, 0xdd, 0x03, 0xab, 0x47, 0xcc, 0x3b, 0x46, 0xee, 0xf7, 0xa7, 0x52, 0x28, 0x41, 0x56,
+	0xa6, 0x61, 0x32, 0x0e, 0xf8, 0xb3, 0x81, 0x7b, 0x71, 0x2c, 0xc4, 0x38, 0xc4, 0xeb, 0xc6, 0x7e,
+	0x94, 0x8c, 0xae, 0x63, 0x34, 0x55, 0xb3, 0xd4, 0xad, 0xf7, 0x6b, 0x05, 0x3a, 0x07, 0xc6, 0x73,
+	0x28, 0xf8, 0x28, 0x18, 0x93, 0x35, 0xa8, 0x04, 0x7e, 0xd7, 0xd9, 0x74, 0xb6, 0xaa, 0xb4, 0x12,
+	0xf8, 0x64, 0x03, 0xea, 0x42, 0x8e, 0xef, 0xf9, 0xdd, 0x8a, 0x31, 0xa5, 0x0a, 0x21, 0x50, 0xe3,
+	0x2c, 0xc2, 0x6e, 0x75, 0xd3, 0xd9, 0x6a, 0x51, 0x23, 0x6b, 0x9b, 0x9a, 0x4d, 0xb1, 0x5b, 0x4b,
+	0x6d, 0x5a, 0x26, 0xeb, 0x50, 0x4d, 0x64, 0xd8, 0xad, 0x1b, 0x93, 0x16, 0x89, 0x0b, 0x2b, 0x5f,
+	0xc4, 0x82, 0x6f, 0x33, 0xc5, 0xba, 0x0d, 0x63, 0xce, 0x75, 0x12, 0xc1, 0x05, 0x1f, 0x3d, 0x39,
+	0x9b, 0x2a, 0xf4, 0x0f, 0xd1, 0x4b, 0x24, 0xde, 0xcf, 0x5c, 0x9b, 0x9b, 0xd5, 0xad, 0xf6, 0xe0,
+	0x46, 0x3f, 0xcb, 0xaa, 0x5f, 0x06, 0xdd, 0xdf, 0x3e, 0x7d, 0xd5, 0x0e, 0x57, 0x72, 0x46, 0x17,
+	0xc5, 0x74, 0xef, 0xc3, 0xa5, 0x65, 0x0b, 0x35, 0xf8, 0x63, 0x9c, 0x99, 0x5a, 0xb4, 0xa8, 0x16,
+	0x75, 0x31, 0x9e, 0xb1, 0x30, 0x41, 0x53, 0x8c, 0x16, 0x4d, 0x95, 0x9b, 0x95, 0xf7, 0x9d, 0xde,
+	0x2e, 0xb4, 0x1e, 0x07, 0x11, 0x52, 0xc6, 0xc7, 0x48, 0x36, 0xa1, 0x3d, 0x92, 0x22, 0xda, 0x99,
+	0x0a, 0x6f, 0xb2, 0x77, 0x68, 0x8b, 0x59, 0x36, 0x91, 0x4b, 0xd0, 0x52, 0x22, 0xfb, 0x9e, 0x56,
+	0xb6, 0x30, 0xf4, 0x7e, 0x70, 0xa0, 0xa5, 0x61, 0x3c, 0x4a, 0x50, 0x9a, 0x4d, 0x25, 0x8e, 0xee,
+	0xf9, 0x16, 0x48, 0xaa, 0x90, 0xab, 0xb0, 0x1a, 0xb1, 0xaf, 0xb4, 0xd7, 0x81, 0x08, 0xb8, 0x8a,
+	0x6d, 0x94, 0x79, 0x23, 0xb9, 0x0c, 0x10, 0x70, 0x85, 0xf2, 0x19, 0x0b, 0xf7, 0x0e, 0x4d, 0xb7,
+	0xaa, 0xb4, 0x64, 0x21, 0xef, 0x42, 0x4b, 0x65, 0xb0, 0x4d, 0xe3, 0xda, 0x83, 0x73, 0x45, 0x8d,
+	0xf3, 0x8c, 0x68, 0xe1, 0xa5, 0xdb, 0xac, 0x1b, 0x66, 0x7a, 0xda, 0xa1, 0x46, 0xee, 0xfd, 0xe1,
+	0xc0, 0x7a, 0x0e, 0x98, 0xe2, 0xd3, 0x04, 0x63, 0x45, 0xfa, 0xd0, 0xf0, 0x4c, 0x7b, 0x0c, 0xf0,
+	0xf6, 0xe0, 0xfc, 0xe9, 0xcd, 0xa3, 0xd6, 0x8b, 0x7c, 0x04, 0xcd, 0x09, 0x32, 0x1f, 0xa5, 0xce,
+	0x45, 0x77, 0xfb, 0x8d, 0x62, 0xc1, 0xc9, 0xe0, 0xfd, 0xbb, 0xa9, 0x67, 0xda, 0xe1, 0x6c, 0x1d,
+	0x79, 0x1b, 0x9a, 0x4f, 0x13, 0x94, 0x01, 0xc6, 0xdd, 0xaa, 0x09, 0x71, 0xee, 0xb4, 0x10, 0x99,
+	0x8f, 0x7b, 0x13, 0x3a, 0xe5, 0x38, 0x2f, 0xd4, 0xf0, 0x1f, 0x1d, 0x38, 0x5b, 0x42, 0x15, 0x4f,
+	0x05, 0x8f, 0x91, 0x9c, 0x87, 0xc6, 0x48, 0xb2, 0x08, 0xe3, 0xae, 0xb3, 0x59, 0xdd, 0xea, 0x50,
+	0xab, 0x91, 0x1d, 0x58, 0x89, 0x50, 0x31, 0x5f, 0x8f, 0x72, 0x9a, 0xdc, 0xb5, 0x53, 0x93, 0x4b,
+	0xc3, 0xf4, 0xf7, 0xac, 0x6f, 0x9a, 0x5e, 0xbe, 0xd4, 0xbd, 0x05, 0xab, 0x73, 0x9f, 0x5e, 0x08,
+	0xf1, 0x2f, 0x35, 0xe8, 0x0c, 0x59, 0x18, 0x52, 0x8c, 0x45, 0x22, 0x3d, 0x74, 0xaf, 0x02, 0x1c,
+	0x2a, 0x19, 0xf0, 0xf1, 0x83, 0x20, 0x56, 0x1a, 0xba, 0xf1, 0x4d, 0xa1, 0xb7, 0xa8, 0xd5, 0xdc,
+	0x9f, 0x2a, 0xd0, 0xfc, 0xa7, 0x2d, 0x25, 0x50, 0x9b, 0x32, 0x35, 0xb1, 0x58, 0x8c, 0xac, 0xf7,
+	0x89, 0x50, 0x4d, 0x84, 0x6f, 0xc9, 0xc3, 0x6a, 0x19, 0x55, 0xd4, 0x0a, 0xaa, 0xd8, 0x29, 0x06,
+	0xa2, 0x6e, 0x6a, 0xf6, 0x66, 0xb1, 0x5d, 0x39, 0x91, 0xfe, 0xf2, 0xa1, 0x20, 0x50, 0x3b, 0x12,
+	0xfe, 0xcc, 0xb0, 0x4d, 0x87, 0x1a, 0xd9, 0xfd, 0xec, 0xb9, 0x9d, 0x7f, 0xaf, 0x5c, 0xc7, 0xf6,
+	0xe0, 0xca, 0x82, 0xad, 0x8b, 0x02, 0x96, 0x4a, 0xed, 0xfe, 0xee, 0xc0, 0x4a, 0x3e, 0x13, 0x04,
+	0x6a, 0x9e, 0xf0, 0xd1, 0x04, 0xaf, 0x53, 0x23, 0x93, 0xdb, 0x27, 0x67, 0xfd, 0xad, 0x85, 0xa9,
+	0xd9, 0x91, 0x58, 0x9e, 0x5b, 0xf5, 0x3f, 0xcb, 0xad, 0xf7, 0x8d, 0x03, 0x6b, 0x43, 0x11, 0x86,
+	0xe8, 0xa9, 0x3d, 0x54, 0x32, 0xf0, 0x62, 0xb7, 0x95, 0x4f, 0x88, 0x7b, 0x0d, 0x9a, 0x07, 0x6c,
+	0x16, 0x0a, 0xe6, 0x6b, 0xee, 0x99, 0x4a, 0xa1, 0xbb, 0x8b, 0x49, 0x6c, 0xb6, 0xef, 0xd0, 0x92,
+	0xc5, 0xbd, 0x5d, 0xaa, 0xd1, 0x4d, 0x68, 0x46, 0x69, 0x30, 0x3b, 0x59, 0x9b, 0x25, 0x4c, 0x73,
+	0x9b, 0xf5, 0x6d, 0x78, 0x9a, 0x2d, 0xd0, 0x6c, 0xd9, 0x1e, 0x4e, 0xd0, 0x3b, 0xbe, 0x8b, 0x2c,
+	0x54, 0x93, 0x32, 0x9a, 0x6f, 0xcb, 0x7d, 0x18, 0x42, 0x23, 0x56, 0x4c, 0x59, 0x2c, 0x6b, 0x73,
+	0xd3, 0x54, 0x2c, 0x9f, 0xab, 0x78, 0xa8, 0x26, 0x87, 0x66, 0x09, 0xb5, 0x4b, 0x75, 0xc1, 0x03,
+	0x3e, 0x12, 0xd9, 0x44, 0x6b, 0xb9, 0xd7, 0x37, 0x05, 0xcf, 0x7d, 0x49, 0x1b, 0x9a, 0x4f, 0x1e,
+	0xee, 0x3e, 0xdc, 0xff, 0xe4, 0xe1, 0xfa, 0x2b, 0xa4, 0x01, 0x95, 0xfd, 0xdd, 0x75, 0x87, 0xb4,
+	0xa0, 0xbe, 0x43, 0xe9, 0x3e, 0x5d, 0xaf, 0xf4, 0xfe, 0x72, 0x60, 0xfd, 0x50, 0x49, 0x64, 0x51,
+	0xc0, 0xc7, 0xd9, 0xd1, 0x72, 0xc1, 0xde, 0xd8, 0xf7, 0xb2, 0xdb, 0x37, 0xd7, 0x97, 0x32, 0xe3,
+	0xc9, 0x40, 0x0b, 0x06, 0x65, 0x03, 0xea, 0x4a, 0x4c, 0x03, 0xcf, 0x1e, 0xba, 0x54, 0xc9, 0xc7,
+	0xc7, 0x5e, 0xd9, 0x5a, 0xd6, 0x6d, 0x8b, 0x93, 0xa3, 0xd8, 0x93, 0xc1, 0x11, 0xfa, 0x86, 0xe5,
+	0x57, 0x68, 0xc9, 0xf2, 0xaf, 0x48, 0xf3, 0xf3, 0x52, 0xe2, 0x7b, 0x18, 0xc7, 0x6c, 0x8c, 0x4b,
+	0x13, 0xcf, 0x51, 0x57, 0xca, 0xa8, 0xbb, 0x7a, 0x58, 0xcc, 0x62, 0x9b, 0x4d, 0xa6, 0xf6, 0x5e,
+	0x87, 0xb5, 0x3c, 0xfe, 0x30, 0x14, 0x31, 0xea, 0x08, 0x9e, 0x48, 0xb8, 0xb2, 0xa1, 0x53, 0xa5,
+	0xf7, 0xa7, 0x03, 0xab, 0x14, 0xb9, 0x8f, 0x32, 0x2b, 0xbf, 0x65, 0x1f, 0xa7, 0x60, 0x9f, 0x0d,
+	0xa8, 0x7f, 0x19, 0xf8, 0x96, 0xbc, 0xea, 0x34, 0x55, 0x34, 0x7b, 0x4d, 0x30, 0x18, 0x4f, 0x94,
+	0xd9, 0xba, 0x4e, 0xad, 0xa6, 0x31, 0xe9, 0x2b, 0x52, 0x24, 0xca, 0x14, 0xb3, 0x4e, 0x33, 0x55,
+	0xe7, 0xa7, 0xc5, 0xaf, 0x05, 0x47, 0xfb, 0x0e, 0xca, 0x75, 0xfd, 0x0d, 0xb9, 0x27, 0xfc, 0x80,
+	0x8f, 0xb3, 0xc7, 0x50, 0xa6, 0xeb, 0x6f, 0xa3, 0x20, 0xc4, 0x03, 0xcd, 0x9f, 0xcd, 0xf4, 0x5b,
+	0xa6, 0xeb, 0xe7, 0x83, 0x34, 0xf0, 0x77, 0x71, 0xd6, 0x5d, 0x31, 0x1f, 0x0b, 0x83, 0xc6, 0xe8,
+	0x8b, 0x88, 0x05, 0xbc, 0xdb, 0x4a, 0x19, 0x36, 0xd5, 0x74, 0x75, 0xb2, 0xa4, 0xed, 0x91, 0xd8,
+	0x80, 0x3a, 0x4a, 0x29, 0x64, 0xf6, 0xb4, 0x30, 0xca, 0xe0, 0x3b, 0x07, 0x6a, 0x43, 0x21, 0x91,
+	0xec, 0xcf, 0x5f, 0x18, 0xe4, 0xf2, 0x72, 0xfe, 0x75, 0x5f, 0x7b, 0x0e, 0x89, 0x91, 0xed, 0xf2,
+	0xbb, 0xc6, 0x5d, 0x7c, 0xbd, 0xbb, 0x17, 0x97, 0xdc, 0x8e, 0x83, 0x9f, 0x1d, 0x68, 0x6f, 0x07,
+	0x6c, 0xcc, 0x45, 0xac, 0x02, 0x2f, 0x26, 0x4f, 0x4e, 0x12, 0x12, 0x59, 0xcc, 0x1e, 0xd9, 0x06,
+	0x57, 0x96, 0x78, 0x58, 0xb0, 0x0f, 0xe6, 0x68, 0x85, 0xbc, 0xba, 0x88, 0x2e, 0xd2, 0x80, 0x97,
+	0x97, 0xb3, 0xc9, 0xe0, 0x7b, 0x07, 0xce, 0xdc, 0x91, 0x6c, 0xc4, 0x38, 0x3b, 0x08, 0x99, 0x1a,
+	0x09, 0x19, 0x91, 0x5d, 0xc3, 0x4e, 0xff, 0xab, 0xda, 0x3e, 0x82, 0xd6, 0x63, 0xc9, 0x78, 0x6c,
+	0xf0, 0xbd, 0x9c, 0x90, 0x9f, 0xc2, 0xd9, 0x3c, 0xa4, 0x86, 0xfe, 0x31, 0xf3, 0x8e, 0x5f, 0x52,
+	0xe8, 0xdf, 0x1c, 0x38, 0x93, 0x1f, 0xf8, 0xf4, 0x05, 0x42, 0x3e, 0x84, 0xe6, 0x50, 0x70, 0x8e,
+	0x9e, 0x22, 0x0b, 0x9e, 0x27, 0xae, 0x7b, 0x0a, 0x7d, 0x5a, 0x3a, 0x7a, 0xc7, 0xd1, 0x6c, 0x7b,
+	0x20, 0x85, 0x87, 0x71, 0x4c, 0xdc, 0xc5, 0x3c, 0xbb, 0x2c, 0x08, 0xf9, 0x00, 0x60, 0x3b, 0x88,
+	0xbd, 0x1c, 0x46, 0xfa, 0x07, 0xd6, 0xcf, 0xfe, 0xc0, 0xfa, 0x3b, 0xfa, 0x0f, 0xcc, 0xed, 0x9e,
+	0x12, 0xc1, 0xb0, 0xd6, 0xe0, 0x8e, 0x1e, 0x0c, 0x7d, 0x52, 0x51, 0x92, 0x5b, 0xd0, 0x48, 0x65,
+	0x72, 0xa1, 0xf0, 0x9f, 0x23, 0xaf, 0x72, 0xa0, 0xf9, 0x03, 0x7e, 0xd4, 0x30, 0x5b, 0xde, 0xf8,
+	0x3b, 0x00, 0x00, 0xff, 0xff, 0x85, 0x4e, 0xfe, 0x13, 0x1d, 0x0e, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -1185,11 +1258,8 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type CoreClient interface {
-	// Diagnostics
-	CollectMetrics(ctx context.Context, in *CollectMetrics_Request, opts ...grpc.CallOption) (*CollectMetrics_Response, error)
-	CheckHealth(ctx context.Context, in *CheckHealth_Request, opts ...grpc.CallOption) (*CheckHealth_Response, error)
 	// HTTP Style request
-	Resource(ctx context.Context, in *ResourceRequest, opts ...grpc.CallOption) (*ResourceResponse, error)
+	CallResource(ctx context.Context, in *CallResource_Request, opts ...grpc.CallOption) (*CallResource_Response, error)
 	// Well typed query interface
 	DataQuery(ctx context.Context, in *DataQueryRequest, opts ...grpc.CallOption) (*DataQueryResponse, error)
 }
@@ -1202,27 +1272,9 @@ func NewCoreClient(cc *grpc.ClientConn) CoreClient {
 	return &coreClient{cc}
 }
 
-func (c *coreClient) CollectMetrics(ctx context.Context, in *CollectMetrics_Request, opts ...grpc.CallOption) (*CollectMetrics_Response, error) {
-	out := new(CollectMetrics_Response)
-	err := c.cc.Invoke(ctx, "/pluginv2.Core/CollectMetrics", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *coreClient) CheckHealth(ctx context.Context, in *CheckHealth_Request, opts ...grpc.CallOption) (*CheckHealth_Response, error) {
-	out := new(CheckHealth_Response)
-	err := c.cc.Invoke(ctx, "/pluginv2.Core/CheckHealth", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *coreClient) Resource(ctx context.Context, in *ResourceRequest, opts ...grpc.CallOption) (*ResourceResponse, error) {
-	out := new(ResourceResponse)
-	err := c.cc.Invoke(ctx, "/pluginv2.Core/Resource", in, out, opts...)
+func (c *coreClient) CallResource(ctx context.Context, in *CallResource_Request, opts ...grpc.CallOption) (*CallResource_Response, error) {
+	out := new(CallResource_Response)
+	err := c.cc.Invoke(ctx, "/pluginv2.Core/CallResource", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1240,11 +1292,8 @@ func (c *coreClient) DataQuery(ctx context.Context, in *DataQueryRequest, opts .
 
 // CoreServer is the server API for Core service.
 type CoreServer interface {
-	// Diagnostics
-	CollectMetrics(context.Context, *CollectMetrics_Request) (*CollectMetrics_Response, error)
-	CheckHealth(context.Context, *CheckHealth_Request) (*CheckHealth_Response, error)
 	// HTTP Style request
-	Resource(context.Context, *ResourceRequest) (*ResourceResponse, error)
+	CallResource(context.Context, *CallResource_Request) (*CallResource_Response, error)
 	// Well typed query interface
 	DataQuery(context.Context, *DataQueryRequest) (*DataQueryResponse, error)
 }
@@ -1253,14 +1302,8 @@ type CoreServer interface {
 type UnimplementedCoreServer struct {
 }
 
-func (*UnimplementedCoreServer) CollectMetrics(ctx context.Context, req *CollectMetrics_Request) (*CollectMetrics_Response, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CollectMetrics not implemented")
-}
-func (*UnimplementedCoreServer) CheckHealth(ctx context.Context, req *CheckHealth_Request) (*CheckHealth_Response, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CheckHealth not implemented")
-}
-func (*UnimplementedCoreServer) Resource(ctx context.Context, req *ResourceRequest) (*ResourceResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Resource not implemented")
+func (*UnimplementedCoreServer) CallResource(ctx context.Context, req *CallResource_Request) (*CallResource_Response, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CallResource not implemented")
 }
 func (*UnimplementedCoreServer) DataQuery(ctx context.Context, req *DataQueryRequest) (*DataQueryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DataQuery not implemented")
@@ -1270,56 +1313,20 @@ func RegisterCoreServer(s *grpc.Server, srv CoreServer) {
 	s.RegisterService(&_Core_serviceDesc, srv)
 }
 
-func _Core_CollectMetrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CollectMetrics_Request)
+func _Core_CallResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CallResource_Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CoreServer).CollectMetrics(ctx, in)
+		return srv.(CoreServer).CallResource(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pluginv2.Core/CollectMetrics",
+		FullMethod: "/pluginv2.Core/CallResource",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CoreServer).CollectMetrics(ctx, req.(*CollectMetrics_Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Core_CheckHealth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CheckHealth_Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CoreServer).CheckHealth(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/pluginv2.Core/CheckHealth",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CoreServer).CheckHealth(ctx, req.(*CheckHealth_Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Core_Resource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResourceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CoreServer).Resource(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/pluginv2.Core/Resource",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CoreServer).Resource(ctx, req.(*ResourceRequest))
+		return srv.(CoreServer).CallResource(ctx, req.(*CallResource_Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1347,16 +1354,8 @@ var _Core_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*CoreServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CollectMetrics",
-			Handler:    _Core_CollectMetrics_Handler,
-		},
-		{
-			MethodName: "CheckHealth",
-			Handler:    _Core_CheckHealth_Handler,
-		},
-		{
-			MethodName: "Resource",
-			Handler:    _Core_Resource_Handler,
+			MethodName: "CallResource",
+			Handler:    _Core_CallResource_Handler,
 		},
 		{
 			MethodName: "DataQuery",
@@ -1367,11 +1366,119 @@ var _Core_serviceDesc = grpc.ServiceDesc{
 	Metadata: "backend.proto",
 }
 
+// DiagnosticsClient is the client API for Diagnostics service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type DiagnosticsClient interface {
+	CollectMetrics(ctx context.Context, in *CollectMetrics_Request, opts ...grpc.CallOption) (*CollectMetrics_Response, error)
+	CheckHealth(ctx context.Context, in *CheckHealth_Request, opts ...grpc.CallOption) (*CheckHealth_Response, error)
+}
+
+type diagnosticsClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewDiagnosticsClient(cc *grpc.ClientConn) DiagnosticsClient {
+	return &diagnosticsClient{cc}
+}
+
+func (c *diagnosticsClient) CollectMetrics(ctx context.Context, in *CollectMetrics_Request, opts ...grpc.CallOption) (*CollectMetrics_Response, error) {
+	out := new(CollectMetrics_Response)
+	err := c.cc.Invoke(ctx, "/pluginv2.Diagnostics/CollectMetrics", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *diagnosticsClient) CheckHealth(ctx context.Context, in *CheckHealth_Request, opts ...grpc.CallOption) (*CheckHealth_Response, error) {
+	out := new(CheckHealth_Response)
+	err := c.cc.Invoke(ctx, "/pluginv2.Diagnostics/CheckHealth", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DiagnosticsServer is the server API for Diagnostics service.
+type DiagnosticsServer interface {
+	CollectMetrics(context.Context, *CollectMetrics_Request) (*CollectMetrics_Response, error)
+	CheckHealth(context.Context, *CheckHealth_Request) (*CheckHealth_Response, error)
+}
+
+// UnimplementedDiagnosticsServer can be embedded to have forward compatible implementations.
+type UnimplementedDiagnosticsServer struct {
+}
+
+func (*UnimplementedDiagnosticsServer) CollectMetrics(ctx context.Context, req *CollectMetrics_Request) (*CollectMetrics_Response, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CollectMetrics not implemented")
+}
+func (*UnimplementedDiagnosticsServer) CheckHealth(ctx context.Context, req *CheckHealth_Request) (*CheckHealth_Response, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckHealth not implemented")
+}
+
+func RegisterDiagnosticsServer(s *grpc.Server, srv DiagnosticsServer) {
+	s.RegisterService(&_Diagnostics_serviceDesc, srv)
+}
+
+func _Diagnostics_CollectMetrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CollectMetrics_Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DiagnosticsServer).CollectMetrics(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pluginv2.Diagnostics/CollectMetrics",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DiagnosticsServer).CollectMetrics(ctx, req.(*CollectMetrics_Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Diagnostics_CheckHealth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckHealth_Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DiagnosticsServer).CheckHealth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pluginv2.Diagnostics/CheckHealth",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DiagnosticsServer).CheckHealth(ctx, req.(*CheckHealth_Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _Diagnostics_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "pluginv2.Diagnostics",
+	HandlerType: (*DiagnosticsServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CollectMetrics",
+			Handler:    _Diagnostics_CollectMetrics_Handler,
+		},
+		{
+			MethodName: "CheckHealth",
+			Handler:    _Diagnostics_CheckHealth_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "backend.proto",
+}
+
 // GrafanaPlatformClient is the client API for GrafanaPlatform service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type GrafanaPlatformClient interface {
-	Resource(ctx context.Context, in *ResourceRequest, opts ...grpc.CallOption) (*ResourceResponse, error)
+	Resource(ctx context.Context, in *CallResource_Request, opts ...grpc.CallOption) (*CallResource_Response, error)
 	DataQuery(ctx context.Context, in *DataQueryRequest, opts ...grpc.CallOption) (*DataQueryResponse, error)
 }
 
@@ -1383,8 +1490,8 @@ func NewGrafanaPlatformClient(cc *grpc.ClientConn) GrafanaPlatformClient {
 	return &grafanaPlatformClient{cc}
 }
 
-func (c *grafanaPlatformClient) Resource(ctx context.Context, in *ResourceRequest, opts ...grpc.CallOption) (*ResourceResponse, error) {
-	out := new(ResourceResponse)
+func (c *grafanaPlatformClient) Resource(ctx context.Context, in *CallResource_Request, opts ...grpc.CallOption) (*CallResource_Response, error) {
+	out := new(CallResource_Response)
 	err := c.cc.Invoke(ctx, "/pluginv2.GrafanaPlatform/Resource", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1403,7 +1510,7 @@ func (c *grafanaPlatformClient) DataQuery(ctx context.Context, in *DataQueryRequ
 
 // GrafanaPlatformServer is the server API for GrafanaPlatform service.
 type GrafanaPlatformServer interface {
-	Resource(context.Context, *ResourceRequest) (*ResourceResponse, error)
+	Resource(context.Context, *CallResource_Request) (*CallResource_Response, error)
 	DataQuery(context.Context, *DataQueryRequest) (*DataQueryResponse, error)
 }
 
@@ -1411,7 +1518,7 @@ type GrafanaPlatformServer interface {
 type UnimplementedGrafanaPlatformServer struct {
 }
 
-func (*UnimplementedGrafanaPlatformServer) Resource(ctx context.Context, req *ResourceRequest) (*ResourceResponse, error) {
+func (*UnimplementedGrafanaPlatformServer) Resource(ctx context.Context, req *CallResource_Request) (*CallResource_Response, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Resource not implemented")
 }
 func (*UnimplementedGrafanaPlatformServer) DataQuery(ctx context.Context, req *DataQueryRequest) (*DataQueryResponse, error) {
@@ -1423,7 +1530,7 @@ func RegisterGrafanaPlatformServer(s *grpc.Server, srv GrafanaPlatformServer) {
 }
 
 func _GrafanaPlatform_Resource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResourceRequest)
+	in := new(CallResource_Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1435,7 +1542,7 @@ func _GrafanaPlatform_Resource_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: "/pluginv2.GrafanaPlatform/Resource",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GrafanaPlatformServer).Resource(ctx, req.(*ResourceRequest))
+		return srv.(GrafanaPlatformServer).Resource(ctx, req.(*CallResource_Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }

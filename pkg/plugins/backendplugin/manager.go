@@ -6,81 +6,78 @@ import (
 	"sync"
 	"time"
 
+	"github.com/prometheus/client_golang/prometheus"
+
 	"github.com/grafana/grafana/pkg/infra/log"
+	"github.com/grafana/grafana/pkg/plugins/backendplugin/collector"
+	"github.com/grafana/grafana/pkg/registry"
 	plugin "github.com/hashicorp/go-plugin"
 	"golang.org/x/xerrors"
 )
 
 var (
-	pluginsMu sync.RWMutex
-	plugins   = make(map[string]*BackendPlugin)
-	logger    = log.New("plugins.backend")
+	// ErrPluginNotRegistered error returned when plugin not registered.
+	ErrPluginNotRegistered = errors.New("Plugin not registered")
+	// ErrDiagnosticsNotSupported error returned when plugin doesn't support diagnostics.
+	ErrDiagnosticsNotSupported = errors.New("Plugin diagnostics not supported")
+	// ErrHealthCheckFailed error returned when health check failed.
+	ErrHealthCheckFailed = errors.New("Health check failed")
 )
 
-type BackendPluginCallbackFunc func(pluginID string, client *plugin.Client, logger log.Logger) error
+func init() {
+	registry.Register(&registry.Descriptor{
+		Name:         "BackendPluginManager",
+		Instance:     &manager{},
+		InitPriority: registry.Low,
+	})
+}
 
-type BackendPlugin struct {
-	id              string
-	executablePath  string
-	managed         bool
-	clientFactory   func() *plugin.Client
-	client          *plugin.Client
+// Manager manages backend plugins.
+type Manager interface {
+	// Register registers a backend plugin
+	Register(descriptor PluginDescriptor) error
+	// StartPlugin starts a non-managed backend plugin
+	StartPlugin(ctx context.Context, pluginID string) error
+	// CheckHealth checks the health of a registered backend plugin.
+	CheckHealth(ctx context.Context, pluginID string) (*CheckHealthResult, error)
+	// CallResource calls a plugin resource.
+	CallResource(ctx context.Context, req CallResourceRequest) (*CallResourceResult, error)
+}
+
+type manager struct {
+	pluginsMu       sync.RWMutex
+	plugins         map[string]*BackendPlugin
+	pluginCollector collector.PluginCollector
 	logger          log.Logger
-	callbackFn      BackendPluginCallbackFunc
-	supportsMetrics bool
-	supportsHealth  bool
 }
 
-func (p *BackendPlugin) start(ctx context.Context) error {
-	p.client = p.clientFactory()
-	// rpcClient, err := p.client.Client()
-	// if err != nil {
-	// 	return err
-	// }
-	// if p.client.NegotiatedVersion() > 1 {
-	// 	_, err = rpcClient.Dispense("diagnostics")
-	// 	if err != nil {
-	// 		return err
-	// 	}
-	// }
-
-	if p.callbackFn != nil {
-		return p.callbackFn(p.id, p.client, p.logger)
-	}
+func (m *manager) Init() error {
+	m.plugins = make(map[string]*BackendPlugin)
+	m.logger = log.New("plugins.backend")
+	m.pluginCollector = collector.NewPluginCollector()
+	prometheus.MustRegister(m.pluginCollector)
 
 	return nil
 }
 
-func (p *BackendPlugin) stop() error {
-	if p.client != nil {
-		p.client.Kill()
-	}
-	return nil
-}
-
-func (p *BackendPlugin) collectMetrics(ctx context.Context) {
-	if !p.supportsMetrics {
-		return
-	}
-}
-
-func (p *BackendPlugin) checkHealth(ctx context.Context) {
-	if !p.supportsHealth {
-		return
-	}
+func (m *manager) Run(ctx context.Context) error {
+	m.start(ctx)
+	<-ctx.Done()
+	m.stop()
+	return ctx.Err()
 }
 
 // Register registers a backend plugin
-func Register(descriptor PluginDescriptor, callbackFn BackendPluginCallbackFunc) error {
-	logger.Debug("Registering backend plugin", "pluginId", descriptor.pluginID, "executablePath", descriptor.executablePath)
-	pluginsMu.Lock()
-	defer pluginsMu.Unlock()
+func (m *manager) Register(descriptor PluginDescriptor) error {
+	m.logger.Debug("Registering backend plugin", "pluginId", descriptor.pluginID, "executablePath", descriptor.executablePath)
+	m.pluginsMu.Lock()
+	defer m.pluginsMu.Unlock()
 
-	if _, exists := plugins[descriptor.pluginID]; exists {
+	if _, exists := m.plugins[descriptor.pluginID]; exists {
 		return errors.New("Backend plugin already registered")
 	}
 
-	pluginLogger := logger.New("pluginId", descriptor.pluginID)
+	pluginLogger := m.logger.New("pluginId", descriptor.pluginID)
 	plugin := &BackendPlugin{
 		id:             descriptor.pluginID,
 		executablePath: descriptor.executablePath,
@@ -88,35 +85,41 @@ func Register(descriptor PluginDescriptor, callbackFn BackendPluginCallbackFunc)
 		clientFactory: func() *plugin.Client {
 			return plugin.NewClient(newClientConfig(descriptor.executablePath, pluginLogger, descriptor.versionedPlugins))
 		},
-		callbackFn: callbackFn,
-		logger:     pluginLogger,
+		startFns: descriptor.startFns,
+		logger:   pluginLogger,
 	}
 
-	plugins[descriptor.pluginID] = plugin
-	logger.Debug("Backend plugin registered", "pluginId", descriptor.pluginID, "executablePath", descriptor.executablePath)
+	m.plugins[descriptor.pluginID] = plugin
+	m.logger.Debug("Backend plugin registered", "pluginId", descriptor.pluginID, "executablePath", descriptor.executablePath)
 	return nil
 }
 
-// Start starts all managed backend plugins
-func Start(ctx context.Context) {
-	pluginsMu.RLock()
-	defer pluginsMu.RUnlock()
-	for _, p := range plugins {
+// start starts all managed backend plugins
+func (m *manager) start(ctx context.Context) {
+	m.pluginsMu.RLock()
+	defer m.pluginsMu.RUnlock()
+	for _, p := range m.plugins {
 		if !p.managed {
 			continue
 		}
 
 		if err := startPluginAndRestartKilledProcesses(ctx, p); err != nil {
 			p.logger.Error("Failed to start plugin", "error", err)
+			continue
+		}
+
+		if p.supportsDiagnostics() {
+			p.logger.Debug("Registering metrics collector")
+			m.pluginCollector.Register(p.id, p)
 		}
 	}
 }
 
 // StartPlugin starts a non-managed backend plugin
-func StartPlugin(ctx context.Context, pluginID string) error {
-	pluginsMu.RLock()
-	p, registered := plugins[pluginID]
-	pluginsMu.RUnlock()
+func (m *manager) StartPlugin(ctx context.Context, pluginID string) error {
+	m.pluginsMu.RLock()
+	p, registered := m.plugins[pluginID]
+	m.pluginsMu.RUnlock()
 	if !registered {
 		return errors.New("Backend plugin not registered")
 	}
@@ -126,6 +129,67 @@ func StartPlugin(ctx context.Context, pluginID string) error {
 	}
 
 	return startPluginAndRestartKilledProcesses(ctx, p)
+}
+
+// stop stops all managed backend plugins
+func (m *manager) stop() {
+	m.pluginsMu.RLock()
+	defer m.pluginsMu.RUnlock()
+	for _, p := range m.plugins {
+		go func(p *BackendPlugin) {
+			p.logger.Debug("Stopping plugin")
+			if err := p.stop(); err != nil {
+				p.logger.Error("Failed to stop plugin", "error", err)
+			}
+			p.logger.Debug("Plugin stopped")
+		}(p)
+	}
+}
+
+// CheckHealth checks the health of a registered backend plugin.
+func (m *manager) CheckHealth(ctx context.Context, pluginID string) (*CheckHealthResult, error) {
+	m.pluginsMu.RLock()
+	p, registered := m.plugins[pluginID]
+	m.pluginsMu.RUnlock()
+
+	if !registered {
+		return nil, ErrPluginNotRegistered
+	}
+
+	if !p.supportsDiagnostics() {
+		return nil, ErrDiagnosticsNotSupported
+	}
+
+	res, err := p.checkHealth(ctx)
+	if err != nil {
+		p.logger.Error("Failed to check plugin health", "error", err)
+		return nil, ErrHealthCheckFailed
+	}
+
+	return checkHealthResultFromProto(res), nil
+}
+
+// CallResource calls a plugin resource.
+func (m *manager) CallResource(ctx context.Context, req CallResourceRequest) (*CallResourceResult, error) {
+	m.pluginsMu.RLock()
+	p, registered := m.plugins[req.Config.PluginID]
+	m.pluginsMu.RUnlock()
+
+	if !registered {
+		return nil, ErrPluginNotRegistered
+	}
+
+	res, err := p.callResource(ctx, req)
+	if err != nil {
+		return nil, err
+	}
+
+	// Make sure a content type always is returned in response
+	if _, exists := res.Headers["Content-Type"]; !exists {
+		res.Headers["Content-Type"] = []string{"application/json"}
+	}
+
+	return res, nil
 }
 
 func startPluginAndRestartKilledProcesses(ctx context.Context, p *BackendPlugin) error {
@@ -140,35 +204,6 @@ func startPluginAndRestartKilledProcesses(ctx context.Context, p *BackendPlugin)
 	}(ctx, p)
 
 	return nil
-}
-
-// Stop stops all managed backend plugins
-func Stop() {
-	pluginsMu.RLock()
-	defer pluginsMu.RUnlock()
-	for _, p := range plugins {
-		go func(p *BackendPlugin) {
-			p.logger.Debug("Stopping plugin")
-			if err := p.stop(); err != nil {
-				p.logger.Error("Failed to stop plugin", "error", err)
-			}
-			p.logger.Debug("Plugin stopped")
-		}(p)
-	}
-}
-
-// CollectMetrics collect metrics from backend plugins
-func CollectMetrics(ctx context.Context) {
-	for _, p := range plugins {
-		p.collectMetrics(ctx)
-	}
-}
-
-// CheckHealth checks health of backend plugins
-func CheckHealth(ctx context.Context) {
-	for _, p := range plugins {
-		p.checkHealth(ctx)
-	}
 }
 
 func restartKilledProcess(ctx context.Context, p *BackendPlugin) error {

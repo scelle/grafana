@@ -14,6 +14,7 @@ export { IndicatorsContainer } from './Select/IndicatorsContainer';
 export { NoOptionsMessage } from './Select/NoOptionsMessage';
 export { default as resetSelectStyles } from './Forms/Select/resetSelectStyles';
 export { ButtonSelect } from './Select/ButtonSelect';
+export { ButtonCascader } from './ButtonCascader/ButtonCascader';
 export { Cascader, CascaderOption } from './Cascader/Cascader';
 
 // Forms
@@ -48,6 +49,9 @@ export { SetInterval } from './SetInterval/SetInterval';
 
 export { Table } from './Table/Table';
 export { TableInputCSV } from './TableInputCSV/TableInputCSV';
+export { TabsBar } from './Tabs/TabsBar';
+export { Tab } from './Tabs/Tab';
+export { TabContent } from './Tabs/TabContent';
 
 // Visualizations
 export {
@@ -62,6 +66,7 @@ export { Gauge } from './Gauge/Gauge';
 export { Graph } from './Graph/Graph';
 export { GraphLegend } from './Graph/GraphLegend';
 export { GraphWithLegend } from './Graph/GraphWithLegend';
+export { GraphContextMenu } from './Graph/GraphContextMenu';
 export { BarGauge, BarGaugeDisplayMode } from './BarGauge/BarGauge';
 export { GraphTooltipOptions } from './Graph/GraphTooltip/types';
 export { VizRepeater } from './VizRepeater/VizRepeater';
@@ -79,7 +84,7 @@ export {
 
 export { Alert, AlertVariant } from './Alert/Alert';
 export { GraphSeriesToggler, GraphSeriesTogglerAPI } from './Graph/GraphSeriesToggler';
-export { Collapse } from './Collapse/Collapse';
+export { Collapse, ControlledCollapse } from './Collapse/Collapse';
 export { LogLabels } from './Logs/LogLabels';
 export { LogRows } from './Logs/LogRows';
 export { getLogRowStyles } from './Logs/getLogRowStyles';
@@ -90,7 +95,6 @@ export { ClickOutsideWrapper } from './ClickOutsideWrapper/ClickOutsideWrapper';
 export * from './SingleStatShared/index';
 export { CallToActionCard } from './CallToActionCard/CallToActionCard';
 export { ContextMenu, ContextMenuItem, ContextMenuGroup, ContextMenuProps } from './ContextMenu/ContextMenu';
-export { VariableSuggestion, VariableOrigin } from './DataLinks/DataLinkSuggestions';
 export { DataLinksEditor } from './DataLinks/DataLinksEditor';
 export { DataLinkInput } from './DataLinks/DataLinkInput';
 export { DataLinksContextMenu } from './DataLinks/DataLinksContextMenu';
@@ -112,5 +116,22 @@ export { default as Chart } from './Chart';
 export { Icon } from './Icon/Icon';
 export { Drawer } from './Drawer/Drawer';
 
+// TODO: namespace!!
+export {
+  StringValueEditor,
+  StringOverrideEditor,
+  stringOverrideProcessor,
+  StringFieldConfigSettings,
+} from './FieldConfigs/string';
+export {
+  NumberValueEditor,
+  NumberOverrideEditor,
+  numberOverrideProcessor,
+  NumberFieldConfigSettings,
+} from './FieldConfigs/number';
+
 // Next-gen forms
 export { default as Forms } from './Forms';
+export { ValuePicker } from './ValuePicker/ValuePicker';
+export { fieldMatchersUI } from './MatchersUI/fieldMatchersUI';
+export { standardFieldConfigEditorRegistry } from './FieldConfigs/standardFieldConfigEditorRegistry';

@@ -351,7 +351,9 @@ The following sections detail the supported settings for each alert notification
 | icon_emoji |
 | icon_url |
 | uploadImage |
-| mention |
+| mentionUsers |
+| mentionGroups |
+| mentionChannel |
 | token |
 
 #### Alert notification `victorops`
@@ -430,6 +432,7 @@ The following sections detail the supported settings for each alert notification
 | apiKey |
 | apiUrl |
 | autoClose |
+| overridePriority |
 
 #### Alert notification `telegram`
 
